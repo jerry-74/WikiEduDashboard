@@ -102,13 +102,14 @@ group :development do
 end
 
 group :development, :test do
+  gem 'puma'
   gem 'pry-rails'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rspec-focused', require: false
   gem 'timecop' # Test utility for setting the time
-  gem 'poltergeist' # Capypara feature specs driven by PhantomJS
+  gem 'poltergeist', git: 'https://github.com/teampoltergeist/poltergeist', branch: 'master' # Capypara feature specs driven by PhantomJS
   gem 'factory_bot_rails' # Factory for creating ActiveRecord objects in tests
 end
 

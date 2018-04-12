@@ -395,7 +395,7 @@ describe 'the course page', type: :feature, js: true do
       visit "/courses/#{slug}/manual_update"
       js_visit "/courses/#{slug}"
       updated_user_count = user_count + 1
-      expect(page).to have_content "#{updated_user_count} Student Editors"
+      expect(page).to have_content "#{updated_user_count}\nStudent Editors"
     end
   end
 

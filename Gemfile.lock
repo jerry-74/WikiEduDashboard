@@ -35,6 +35,16 @@ GIT
       jwt (~> 1.0)
       omniauth-oauth (~> 1.0)
 
+GIT
+  remote: https://github.com/teampoltergeist/poltergeist
+  revision: c0f666045c39c30863ca5a3c750b037d287cc3a0
+  branch: master
+  specs:
+    poltergeist (1.17.0)
+      capybara (>= 2.1, < 4)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -124,16 +134,16 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capistrano-sidekiq (1.0.1)
+    capistrano-sidekiq (1.0.2)
       capistrano (>= 3.9.0)
       sidekiq (>= 3.4)
-    capybara (2.18.0)
+    capybara (3.0.1)
       addressable
       mini_mime (>= 0.1.3)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (>= 2.0, < 4.0)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      xpath (~> 3.0)
     capybara-screenshot (1.0.19)
       capybara (>= 1.0, < 4)
       launchy
@@ -304,12 +314,8 @@ GEM
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     parallel (1.12.1)
-    parser (2.5.0.5)
+    parser (2.5.1.0)
       ast (~> 2.4.0)
-    poltergeist (1.17.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     premailer (1.11.1)
       addressable
@@ -324,6 +330,7 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.2)
+    puma (3.11.4)
     rack (2.0.4)
     rack-protection (2.0.1)
       rack
@@ -446,7 +453,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    skylight (1.6.0)
+    skylight (1.6.1)
       activesupport (>= 3.0.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
@@ -541,9 +548,10 @@ DEPENDENCIES
   paper_trail
   paperclip
   piwik_analytics!
-  poltergeist
+  poltergeist!
   premailer-rails
   pry-rails
+  puma
   rails (= 5.2.0)
   rails-controller-testing
   rails-erd

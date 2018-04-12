@@ -12,15 +12,21 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
 require 'capybara/poltergeist'
+require 'rack/handler/puma'
 
 url_blacklist = ['https://wikiedu.org', 'https://fonts.googleapis.com', 'http://sentry.example.com']
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, js_errors: true, url_blacklist: url_blacklist, timeout: 60)
 end
 
+Capybara.register_server :rails_puma_custom do |app, port, _host|
+  Rack::Handler::Puma.run(app, Port: port, Threads: '0:1', Silent: true)
+end
+
 Capybara.configure do |config|
   config.javascript_driver = :poltergeist
   config.default_max_wait_time = 10
+  config.server = :rails_puma_custom
 end
 
 Rails.cache.clear
